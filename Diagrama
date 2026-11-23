@@ -1,1 +1,47 @@
+## 9. Diagrama de clases
 
+```mermaid
+classDiagram
+    class Persona {
+        +String usuario
+        +String nombre
+    }
+
+    class Vertice {
+        +Persona persona
+        +Arista aristas
+        +Vertice sig
+    }
+
+    class Arista {
+        +Vertice destino
+        +TipoRelacion tipo
+        +Arista sig
+    }
+
+    class TipoRelacion {
+        <<enumeration>>
+        AMISTAD
+        SEGUIR
+    }
+
+    class ConexionAmbato {
+        -Vertice cabeza
+        +registrarPersona()
+        +eliminarPersona()
+        +agregarAmistad()
+        +seguir()
+        +eliminarAmistad()
+        +dejarDeSeguir()
+        +listarAmigos()
+        +listarSeguidos()
+        +listarSeguidores()
+        +mostrarRed()
+    }
+
+    Vertice --> Persona
+    Vertice --> Arista
+    Arista --> Vertice
+    Arista --> TipoRelacion
+    ConexionAmbato --> Vertice
+```
